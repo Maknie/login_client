@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './login.module.css'
 
 class Login extends Component {
 
@@ -29,24 +30,25 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Login user form</h1>
-
-        <label>
-          Username:
+      <div className={styles.signupDiv}>
+        <div className={styles.signupForm}>
+          <h1 className={styles.title}>Welcome back</h1>
+          <label>
+            Username:
           <input type="text" name="username"
-            value={this.state.credentials.username}
-            onChange={this.inputChanged} />
-        </label>
-        <br />
-        <label>
-          Password:
+              value={this.state.credentials.username}
+              onChange={this.inputChanged} />
+          </label>
+          <br />
+          <label>
+            Password:
           <input type="password" name="password"
-            value={this.state.credentials.password}
-            onChange={this.inputChanged} />
-        </label>
-        <br />
-        <button onClick={this.login}>Sign in</button>
+              value={this.state.credentials.password}
+              onChange={this.inputChanged} />
+          </label>
+          <br />
+          <button className={styles.signupBtn} onClick={this.login}>Sign in</button>
+        </div>
       </div>
     );
   }

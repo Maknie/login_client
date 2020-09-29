@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
-import Login from './components/login';
-import SignUp from './components/signup';
+import Login from './pages/login';
+import MyRouter from './MyRouter';
 
 
 function App() {
@@ -15,8 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <Login userLogin={userLogin}/>
-      <SignUp />
+      <MyRouter />  
     </div>
   );
 }
