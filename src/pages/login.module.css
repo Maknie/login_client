@@ -11,10 +11,12 @@
 
 .signupForm{
     width: 40%;
-    height: 40%;
+    height: 45%;
     background-color: rgba(8, 93, 173, 0.8);
     padding: 10px 40px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 input{
@@ -57,7 +59,7 @@ label{
 .signupBtn{
     border: none;
     border-radius: 10px;
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    background: linear-gradient(90deg, rgba(8,93,173,1) 0%, rgba(49,195,231,1) 100%);
     color: #d1e0de;
     width: 50%;
     height: 40px;
@@ -69,5 +71,32 @@ label{
 
 .signupBtn:hover{
     color: white;
-    font-size: 1.4em;
+    font-size: 1.2em;
+    border: solid 0.5px white;
+}
+
+.adminLink{
+    color: white;
+    margin: auto;
+    padding: 5px 60px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: capitalize;
+    background: linear-gradient(90deg, rgba(8,93,173,1) 0%, rgba(49,195,231,1) 100%);
+    font-size: 1em;
+}
+
+.adminLink:visited{
+    color: white;
+    margin: auto;
+    padding: 5px 60px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+
+.adminLink:hover{
+    font-size: 1.1em;
+    border: solid 1px white;
 }

@@ -15,7 +15,7 @@ class SignUp extends Component {
 
 
     register = event => {
-        if(this.state.passwordRepeat !== this.state.credentials.password){
+        if (this.state.passwordRepeat !== this.state.credentials.password) {
             alert("Passwords doesn't match")
             return
         }
@@ -27,9 +27,14 @@ class SignUp extends Component {
             .then(data => data.json())
             .then(
                 data => {
-                    console.log(data.token);
-                    this.setState({ signedUp: true })
-                    alert(data.token)
+                    if (data.token) {
+                        console.log(data);
+                        this.setState({ signedUp: true })
+                        this.props.handleSuccesfulAuth(data)
+                        alert("Registration is successful")
+                    } else {
+                        alert("Something wrong")
+                    }
                 }
             )
             .catch(error => {
@@ -44,7 +49,7 @@ class SignUp extends Component {
     }
 
     passwordCheck = event => {
-        this.setState({passwordRepeat: event.target.value})
+        this.setState({ passwordRepeat: event.target.value })
     }
 
     render() {
@@ -71,7 +76,7 @@ class SignUp extends Component {
                     <input type="password" name="password"
                             value={this.state.passwordRepeat}
                             onChange={this.passwordCheck}
-                            />
+                        />
                     </label>
                     <br />
                     <label>

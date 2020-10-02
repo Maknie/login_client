@@ -4,7 +4,8 @@ import styles from './login.module.css'
 class Login extends Component {
 
   state = {
-    credentials: { username: '', password: '' }
+    credentials: { username: '', password: '' },
+    isLogged: false,
   }
 
   login = event => {
@@ -16,7 +17,13 @@ class Login extends Component {
       .then(data => data.json())
       .then(
         data => {
-          this.props.userLogin(data.token);
+          if (data.token) {
+            console.log(data);
+            this.props.handleSuccesfulAuth(data)
+            alert("Login is successful")
+          } else {
+            alert("Something wrong")
+          }
         }
       )
       .catch(error => console.error(error))
@@ -48,6 +55,7 @@ class Login extends Component {
           </label>
           <br />
           <button className={styles.signupBtn} onClick={this.login}>Sign in</button>
+          <a className={styles.adminLink} href="http://127.0.0.1:8000/admin">admin</a>
         </div>
       </div>
     );
